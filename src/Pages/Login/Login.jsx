@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
+import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { signIn, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
@@ -12,6 +16,32 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          title: "Success!",
+          text: "Signned in successfully!",
+          icon: "success",
+        });
+      })
+      .then((error) => {
+        console.log(error);
+      });
+  };
+  const handleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          title: "Success!",
+          text: "Signned in successfully!",
+          icon: "success",
+        });
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="w-1/2 mx-auto py-10">
@@ -48,9 +78,20 @@ const Login = () => {
           value="Sign in"
         />
 
-        <p>
-          Not a member? <Link to="/register">Register</Link> now
+        <p className="text-center">
+          Don't have an account?{" "}
+          <Link to="/register" className="underline">
+            Sign up
+          </Link>{" "}
+          now
         </p>
+        <button
+          className="w-2/3 flex items-center gap-2 border justify-center py-3 mx-auto rounded-full"
+          onClick={handleGoogleSignIn}
+        >
+          <FcGoogle></FcGoogle>
+          <p>Sign in with Google</p>
+        </button>
       </form>
     </div>
   );

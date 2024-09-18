@@ -1,12 +1,28 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          title: "Success!",
+          text: "Account Created successfully!",
+          icon: "success",
+        });
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="w-1/2 mx-auto py-10">
@@ -44,8 +60,12 @@ const Register = () => {
           value="Sign up"
         />
 
-        <p>
-          Already a member? <Link to="/login">Login</Link> now
+        <p className="text-center">
+          Already have an account?{" "}
+          <Link to="/login" className="underline">
+            Login
+          </Link>{" "}
+          now
         </p>
       </form>
     </div>
