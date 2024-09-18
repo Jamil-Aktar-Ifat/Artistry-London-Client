@@ -5,17 +5,17 @@ const Navbar = () => {
   const navLinks = (
     <div className="flex gap-3">
       <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
-      <NavLink>Home</NavLink>
+      <NavLink>Arts & Craft</NavLink>
+      <NavLink>Add Craft</NavLink>
+      <NavLink>My Carfts</NavLink>
+      <NavLink to="/login">Login</NavLink>
     </div>
   );
   return (
-    <div className="navbar flex justify-between ">
-      <div className="lg:hidden">
+    <div className="navbar py-5">
+      <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost ">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -38,13 +38,13 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
+        <a className="btn btn-ghost text-xl">Artistry London</a>
       </div>
-      <div className="hidden lg:flex">
-        <ul className=" menu-horizontal px-1">{navLinks}</ul>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <p className=" text-xl">Artistry London</p>
-      <div className="">
-        <a className="border p-2">Button</a>
+      <div className="navbar-end">
+        <a className="btn">Button</a>
       </div>
     </div>
   );
