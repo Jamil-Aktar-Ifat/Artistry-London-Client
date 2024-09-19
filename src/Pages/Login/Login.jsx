@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn, googleLogin } = useContext(AuthContext);
+  const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
@@ -19,14 +20,23 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result);
-        Swal.fire({
-          title: "Success!",
-          text: "Signned in successfully!",
-          icon: "success",
-        });
+        if (result) {
+          Swal.fire({
+            title: "Success!",
+            text: "Signned in successfully!",
+            icon: "success",
+          });
+        }
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
+        if (error) {
+          Swal.fire({
+            title: "Invalid Credential",
+            text: "Please double check your email/password!",
+            icon: "error",
+          });
+        }
       });
   };
   const handleGoogleSignIn = () => {
@@ -39,8 +49,32 @@ const Login = () => {
           icon: "success",
         });
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
+        Swal.fire({
+          title: "Invalid Credential",
+          text: "Please double check your email/password!",
+          icon: "error",
+        });
+      });
+  };
+  const handleGithubSignIn = () => {
+    githubLogin()
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          title: "Success!",
+          text: "Signned in successfully!",
+          icon: "success",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          title: "Invalid Credential",
+          text: "Please double check your email/password!",
+          icon: "error",
+        });
       });
   };
   return (
@@ -85,13 +119,21 @@ const Login = () => {
           </Link>{" "}
           now
         </p>
-        <button
-          className="w-2/3 flex items-center gap-2 border justify-center py-3 mx-auto rounded-full"
-          onClick={handleGoogleSignIn}
-        >
-          <FcGoogle></FcGoogle>
-          <p>Sign in with Google</p>
-        </button>
+        <div className="flex items-center justify-center gap-5">
+          <button
+            className="flex items-center gap-2 border justify-center py-3 px-10  rounded-full"
+            onClick={handleGoogleSignIn}
+          >
+            <FcGoogle></FcGoogle>
+            <p>Sign in with Google</p>
+          </button>
+          <button
+            className=" border py-4  px-5 rounded-3xl"
+            onClick={handleGithubSignIn}
+          >
+            <FaGithub></FaGithub>
+          </button>
+        </div>
       </form>
     </div>
   );
