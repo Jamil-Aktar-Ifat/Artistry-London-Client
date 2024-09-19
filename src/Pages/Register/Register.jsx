@@ -1,16 +1,39 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [registrationError, setRegistrationError] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    setRegistrationError("");
+
+    if (password.length < 6) {
+      setRegistrationError(
+        toast.error("Password needs to be at least 6 characters long!")
+      );
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setRegistrationError(
+        toast.error("Password needs to contain at least one uppercase letter!!")
+      );
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      setRegistrationError(
+        toast.error("Password needs to contain at least one lowercase letter!!")
+      );
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         console.log(result);
@@ -37,6 +60,14 @@ const Register = () => {
           name="name"
           id="name"
           placeholder="Your Name"
+          required
+        />
+        <input
+          className="pl-3 py-3 border"
+          type="url"
+          name="url"
+          id="url"
+          placeholder="PhotoUrl"
         />
         <input
           className=" pl-3 py-3 border"
@@ -44,6 +75,7 @@ const Register = () => {
           name="email"
           id="email"
           placeholder="Your Email"
+          required
         />
         <div className="relative">
           <input
@@ -52,6 +84,7 @@ const Register = () => {
             name="password"
             id="pass"
             placeholder="Your Password"
+            required
           />
         </div>
         <input
@@ -67,6 +100,19 @@ const Register = () => {
           </Link>{" "}
           now
         </p>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        ></ToastContainer>
       </form>
     </div>
   );

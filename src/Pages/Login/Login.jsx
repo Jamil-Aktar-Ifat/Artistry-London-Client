@@ -90,6 +90,7 @@ const Login = () => {
           name="email"
           id="email"
           placeholder="Your Email"
+          required
         />
         <div className="relative">
           <input
@@ -98,6 +99,7 @@ const Login = () => {
             name="password"
             id="pass"
             placeholder="Your Password"
+            required
           />
           <span
             className="absolute right-5 top-4"
