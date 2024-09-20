@@ -1,26 +1,21 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import MarqueeC from "../components/Marquee/MarqueeC";
+import Navbar from "../components/Navbar/Navbar";
 
 const Root = () => {
   return (
-    <div className="bg-[#F8F7F4] min-h-screen flex flex-col">
-      {/* Navbar */}
-      <div className="w-full bg-white">
-        <div className="max-w-6xl mx-auto">
-          <Navbar />
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      {/* Navbar Section */}
+      <Navbar />
 
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto flex-grow">
+      {/* Main content */}
+      <div className="flex-grow max-w-6xl mx-auto">
         <Outlet />
       </div>
-      <MarqueeC></MarqueeC>
 
-      {/* Footer */}
-      <div className="">
+      {/* Footer Section */}
+      <div>
         <Footer />
       </div>
     </div>

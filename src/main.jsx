@@ -11,6 +11,7 @@ import AddCraft from "./Pages/AddCraft/AddCraft";
 import ArtCraft from "./Pages/ArtCraft/ArtCraft";
 import PrivateRoutes from "./Routes/PrivateRoutes";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import ViewDetails from "./Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,19 @@ const router = createBrowserRouter([
             <AddCraft></AddCraft>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: `/crafts/:id`,
+        element: (
+          <PrivateRoutes>
+            <ViewDetails></ViewDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5005/crafts/${params.id}`),
+
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5005/crafts/${params.idv}`),
       },
     ],
   },

@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   const navLinks = (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center space-x-3 ">
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -52,7 +52,10 @@ const Navbar = () => {
         Add Craft
       </NavLink>
       <NavLink
-        
+        to="/my-crafts"
+        className={({ isActive }) =>
+          isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
+        }
       >
         My Crafts
       </NavLink>
@@ -60,7 +63,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="navbar py-5">
+    <nav className="navbar py-5 max-w-6xl mx-auto">
       {/* Navbar Start */}
       <div className="navbar-start">
         {/* Dropdown for Mobile */}
@@ -114,7 +117,7 @@ const Navbar = () => {
           <div className="relative group">
             {/* User Photo with Tooltip */}
             <div
-              className="tooltip tooltip-right"
+              className="tooltip md:tooltip-right mr-10 md:mr-0"
               data-tip={user.displayName || "User"}
             >
               <img
@@ -133,7 +136,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center space-x-2">
             <NavLink
               to="/login"
               className={({ isActive }) =>

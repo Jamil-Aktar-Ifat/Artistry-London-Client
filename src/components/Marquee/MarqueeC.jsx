@@ -50,7 +50,7 @@ const slides = [
     tags: ["Visual Design", "Branding"],
   },
   {
-    img: "https://videos.pexels.com/video-files/3202040/3202040-sd_640_360_25fps.mp4",
+    img: "https://videos.pexels.com/video-files/9364050/9364050-sd_640_360_25fps.mp4",
     name: "Emily White",
     title: "UI Designer",
     tags: ["UI", "UX", "Design"],
@@ -62,9 +62,9 @@ const MarqueeC = () => {
     <div className="overflow-hidden">
       <Marquee pauseOnHover={true} speed={150}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative flex items-center mx-4">
-            {/* Fixed size for image and video container */}
-            <div className="w-72 h-96 overflow-hidden rounded-xl relative">
+          <div key={index} className="relative md:flex items-center mx-4">
+            
+            <div className="md:w-72 h-96 overflow-hidden rounded-xl relative">
               {slide.img.endsWith(".mp4") ? (
                 <video
                   className="object-cover w-full h-full"
@@ -84,8 +84,8 @@ const MarqueeC = () => {
               )}
             </div>
 
-            {/* Overlay Content */}
-            <div className="absolute bottom-0 w-full flex flex-col items-center text-white p-2 bg-black bg-opacity-50 rounded-lg">
+            
+            <div className="absolute bottom-0 md:w-full flex flex-col items-center text-white p-2 bg-black bg-opacity-50 rounded-lg">
               <p className="text-lg font-semibold shadow-md">{slide.name}</p>
               <p className="text-sm shadow-md">{slide.title}</p>
               <div className="flex items-center gap-2 mt-2">
