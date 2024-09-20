@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import MarqueeC from "../components/Marquee/MarqueeC";
 
 const Root = () => {
   return (
@@ -16,6 +17,7 @@ const Root = () => {
       <div className="max-w-6xl mx-auto flex-grow">
         <Outlet />
       </div>
+      <MarqueeC></MarqueeC>
 
       {/* Footer */}
       <div className="">
