@@ -36,7 +36,7 @@ const Navbar = () => {
         Home
       </NavLink>
       <NavLink
-        to="/arts-craft"
+        to="/artCraft"
         className={({ isActive }) =>
           isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
         }
@@ -44,7 +44,7 @@ const Navbar = () => {
         Arts & Craft
       </NavLink>
       <NavLink
-        to="/add-craft"
+        to="/addCraft"
         className={({ isActive }) =>
           isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
         }
@@ -52,10 +52,7 @@ const Navbar = () => {
         Add Craft
       </NavLink>
       <NavLink
-        to="/my-crafts"
-        className={({ isActive }) =>
-          isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
-        }
+        
       >
         My Crafts
       </NavLink>
@@ -136,7 +133,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             <NavLink
               to="/login"
               className={({ isActive }) =>

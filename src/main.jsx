@@ -7,6 +7,10 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import AuthProvider from "./Providers/AuthProvider";
+import AddCraft from "./Pages/AddCraft/AddCraft";
+import ArtCraft from "./Pages/ArtCraft/ArtCraft";
+import PrivateRoutes from "./Routes/PrivateRoutes";
+import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +29,27 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/artCraft",
+        element: (
+          <PrivateRoutes>
+            <ArtCraft></ArtCraft>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/addCraft",
+        element: (
+          <PrivateRoutes>
+            <AddCraft></AddCraft>
+          </PrivateRoutes>
+        ),
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 

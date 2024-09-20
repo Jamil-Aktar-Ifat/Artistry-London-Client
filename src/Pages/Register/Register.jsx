@@ -48,14 +48,14 @@ const Register = () => {
       });
   };
   return (
-    <div className="w-1/2 mx-auto py-10">
+    <div className="flex flex-grow  items-center justify-center py-10">
       <form
         onSubmit={handleSubmit}
         className="border grid grid-cols-1 gap-5 p-4"
       >
         <h2 className="text-center">Sign Up Now</h2>
         <input
-          className=" pl-3 py-3 border"
+          className=" pl-3 py-3 border md:w-96"
           type="text"
           name="name"
           id="name"
