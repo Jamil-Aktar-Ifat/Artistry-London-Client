@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import ThemeToggle from "../ThemeToggle/ThemeToggle"; // Import the ThemeToggle component
 
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -30,7 +31,9 @@ const Navbar = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
+          isActive
+            ? "text-blue-500 underline"
+            : "text-gray-700 hover:underline dark:text-gray-300"
         }
       >
         Home
@@ -38,7 +41,9 @@ const Navbar = () => {
       <NavLink
         to="/artCraft"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
+          isActive
+            ? "text-blue-500 underline"
+            : "text-gray-700 hover:underline dark:text-gray-300"
         }
       >
         Arts & Craft
@@ -46,7 +51,9 @@ const Navbar = () => {
       <NavLink
         to="/addCraft"
         className={({ isActive }) =>
-          isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
+          isActive
+            ? "text-blue-500 underline"
+            : "text-gray-700 hover:underline dark:text-gray-300"
         }
       >
         Add Craft
@@ -57,7 +64,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-blue-500 underline"
-              : "text-gray-700 hover:underline"
+              : "text-gray-700 hover:underline dark:text-gray-300"
           }
         >
           My Crafts
@@ -77,7 +84,7 @@ const Navbar = () => {
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-700"
+              className="h-5 w-5 text-gray-700 dark:text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -92,7 +99,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-white rounded-box z-50 mt-3 w-52 p-2 shadow-lg"
+            className="menu menu-sm dropdown-content bg-white dark:bg-gray-800 rounded-box z-50 mt-3 w-52 p-2 shadow-lg"
           >
             {navLinks}
             {user && (
@@ -107,7 +114,10 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
-        <Link className="text-xl font-bold text-gray-800" to="/">
+        <Link
+          className="text-xl font-bold text-gray-800 dark:text-gray-100"
+          to="/"
+        >
           Artistry London
         </Link>
       </div>
@@ -118,7 +128,7 @@ const Navbar = () => {
       </div>
 
       {/* Navbar End */}
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center space-x-4">
         {user ? (
           <div className="relative group">
             {/* User Photo with Tooltip */}
@@ -148,24 +158,25 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-blue-500 underline"
-                  : "text-gray-700 hover:underline"
+                  : "text-gray-700 hover:underline dark:text-gray-300"
               }
             >
               Sign In
             </NavLink>
-            <span className="text-gray-500">/</span>
+            <span className="text-gray-500 dark:text-gray-300">/</span>
             <NavLink
               to="/register"
               className={({ isActive }) =>
                 isActive
                   ? "text-blue-500 underline"
-                  : "text-gray-700 hover:underline"
+                  : "text-gray-700 hover:underline dark:text-gray-300"
               }
             >
               Sign Up
             </NavLink>
           </div>
         )}
+        <ThemeToggle />
       </div>
     </nav>
   );

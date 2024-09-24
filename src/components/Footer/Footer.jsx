@@ -5,7 +5,7 @@ import { GrPinterest } from "react-icons/gr";
 
 const Footer = () => {
   return (
-    <div className=" py-10 bg-slate-100 m-0">
+    <div className=" py-10 bg-slate-100 m-0  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
       <div className="max-w-6xl mx-auto space-y-20">
         <div className="flex  flex-col md:flex-row items-center justify-around space-y-5 md:space-y-0">
           <h2 className="text-2xl font-semibold ">Artistry London</h2>

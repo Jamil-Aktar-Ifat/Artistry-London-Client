@@ -62,9 +62,8 @@ const MarqueeC = () => {
     <div className="overflow-hidden">
       <Marquee pauseOnHover={true} speed={150}>
         {slides.map((slide, index) => (
-          <div key={index} className="relative md:flex items-center mx-4">
-            
-            <div className="md:w-72 h-96 overflow-hidden rounded-xl relative">
+          <div key={index} className="relative flex items-center mx-4">
+            <div className="w-40  md:w-72 h-64 md:h-96 overflow-hidden rounded-xl relative">
               {slide.img.endsWith(".mp4") ? (
                 <video
                   className="object-cover w-full h-full"
@@ -84,15 +83,19 @@ const MarqueeC = () => {
               )}
             </div>
 
-            
-            <div className="absolute bottom-0 md:w-full flex flex-col items-center text-white p-2 bg-black bg-opacity-50 rounded-lg">
-              <p className="text-lg font-semibold shadow-md">{slide.name}</p>
-              <p className="text-sm shadow-md">{slide.title}</p>
+            {/* Content Overlay */}
+            <div className="absolute bottom-0 w-full flex flex-col items-center text-white p-2 bg-black bg-opacity-50 rounded-b-xl md:rounded-lg">
+              <p className="text-sm sm:text-base md:text-lg font-semibold shadow-md">
+                {slide.name}
+              </p>
+              <p className="text-xs sm:text-sm md:text-base shadow-md">
+                {slide.title}
+              </p>
               <div className="flex items-center gap-2 mt-2">
                 {slide.tags.map((tag, idx) => (
                   <button
                     key={idx}
-                    className="p-2 border rounded-xl text-xs hover:bg-white hover:text-black transition-colors"
+                    className="p-1 sm:p-2 border rounded-lg sm:rounded-xl text-xs sm:text-sm hover:bg-white hover:text-black transition-colors"
                   >
                     {tag}
                   </button>

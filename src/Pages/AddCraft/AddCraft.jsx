@@ -61,7 +61,7 @@ const AddCraft = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
       <Link to="/">
         <div className="mt-10 flex items-center gap-2">
           <div className="text-lg">
@@ -71,7 +71,7 @@ const AddCraft = () => {
         </div>
       </Link>
 
-      <div className="bg-[#F4F3F0] mt-4 mb-20 md:py-20 space-y-5">
+      <div className=" bg-[#F4F3F0] dark:bg-gray-900 mt-4 mb-20 md:py-20 space-y-5 border">
         <h2 className="text-center text-4xl">Add New Craft</h2>
         <p className="text-center px-10 md:px-44">
           Showcase your creativity and share your handmade crafts with a

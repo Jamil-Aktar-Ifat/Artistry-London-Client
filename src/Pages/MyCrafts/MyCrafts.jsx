@@ -66,10 +66,10 @@ const MyCrafts = () => {
   });
 
   return (
-    <div className="max-w-6xl mx-auto py-10">
+    <div className="max-w-6xl mx-auto py-10  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
       <h2 className="text-4xl text-center font-bold mb-8">My Crafts</h2>
 
-      <div className="mb-5">
+      <div className="mb-5 ">
         <label htmlFor="filter" className="mr-2">
           Filter by Customisation:
         </label>
@@ -77,7 +77,7 @@ const MyCrafts = () => {
           id="filter"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="p-2 border rounded"
+          className="p-2 border rounded  dark:bg-gray-900 text-gray-800 dark:text-gray-100"
         >
           <option value="all">All</option>
           <option value="yes">Yes</option>
@@ -89,7 +89,7 @@ const MyCrafts = () => {
         {filteredItems.map((item) => (
           <div
             key={item._id}
-            className="bg-white border shadow-lg rounded-lg overflow-hidden"
+            className=" border shadow-lg rounded-lg overflow-hidden"
           >
             <img
               className="h-56 w-full object-cover"
@@ -101,25 +101,21 @@ const MyCrafts = () => {
               <p className="text-lg font-semibold text-gray-800 mb-2">
                 ${item.price}
               </p>
-              <p className="text-sm text-gray-500 mb-2">
-                Rating: {item.rating} / 5
-              </p>
-              <p className="text-sm text-gray-500 mb-4">
+              <p className="text-sm  mb-2">Rating: {item.rating} / 5</p>
+              <p className="text-sm  mb-4">
                 Customisation: {item.Customisation ? "Yes" : "No"}
               </p>
-              <p className="text-sm text-gray-500 mb-4">
-                Stock Status: {item.stockStatus}
-              </p>
+              <p className="text-sm  mb-4">Stock Status: {item.stockStatus}</p>
               <div className="flex justify-between">
                 <Link
                   to={`/update/${item._id}`}
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+                  className="bg-blue-500 hover:bg-blue-600font-semibold py-2 px-4 rounded"
                 >
                   Update
                 </Link>
                 <button
                   onClick={() => handleDelete(item._id)}
-                  className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
+                  className="bg-red-500 hover:bg-red-600 font-semibold py-2 px-4 rounded"
                 >
                   Delete
                 </button>

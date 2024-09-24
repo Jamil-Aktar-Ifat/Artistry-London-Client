@@ -7,7 +7,7 @@ const ViewDetails = () => {
   if (!craftItem) return <div>Loading...</div>;
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
+    <div className="max-w-6xl mx-auto p-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
       {/* Craft Item Container */}
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Title */}
