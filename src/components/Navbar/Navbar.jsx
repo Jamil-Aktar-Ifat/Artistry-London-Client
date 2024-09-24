@@ -51,14 +51,20 @@ const Navbar = () => {
       >
         Add Craft
       </NavLink>
-      <NavLink
-        to="/my-crafts"
-        className={({ isActive }) =>
-          isActive ? "text-blue-500 underline" : "text-gray-700 hover:underline"
-        }
-      >
-        My Crafts
-      </NavLink>
+      {user ? (
+        <NavLink
+          to="/myCrafts"
+          className={({ isActive }) =>
+            isActive
+              ? "text-blue-500 underline"
+              : "text-gray-700 hover:underline"
+          }
+        >
+          My Crafts
+        </NavLink>
+      ) : (
+        ""
+      )}
     </div>
   );
 

@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
-import { FaArrowLeftLong } from "react-icons/fa6";
-import Swal from "sweetalert2";
 import { useContext } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
-const AddCraft = () => {
+const UpdatePage = () => {
   const { user } = useContext(AuthContext);
-  const handleAddCraft = (e) => {
+  const item = useLoaderData();
+  const { _id } = item;
+  console.log(item);
+
+  if (!item) return <div>Loading...</div>;
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const item_name = form.item_name.value;
@@ -21,7 +26,8 @@ const AddCraft = () => {
     const user_name = form.user_name.value;
     const imageURL = form.imageURL.value;
 
-    const newCraft = {
+    const updateCraft = {
+      _id,
       item_name,
       subcategory_name,
       short_description,
@@ -35,27 +41,27 @@ const AddCraft = () => {
       imageURL,
     };
 
-    console.log(newCraft);
+    console.log(updateCraft);
 
     // Send data to the server
-    fetch("http://localhost:5005/crafts", {
-      method: "POST",
+    fetch(`http://localhost:5005/crafts/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newCraft),
+      body: JSON.stringify(updateCraft),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Craft Added Successfully!",
+            text: "Craft Updated Successfully!",
             icon: "success",
             confirmButtonText: "Done!",
           });
-          form.reset();
+          form.reset;
         }
       });
   };
@@ -72,7 +78,7 @@ const AddCraft = () => {
       </Link>
 
       <div className="bg-[#F4F3F0] mt-4 mb-20 md:py-20 space-y-5">
-        <h2 className="text-center text-4xl">Add New Craft</h2>
+        <h2 className="text-center text-4xl">Update Craft</h2>
         <p className="text-center px-10 md:px-44">
           Showcase your creativity and share your handmade crafts with a
           passionate community. Whether it's jewelry, home decor, or unique art,
@@ -80,7 +86,7 @@ const AddCraft = () => {
         </p>
 
         <form
-          onSubmit={handleAddCraft}
+          onSubmit={handleUpdate}
           className="mx-10 md:mx-28 space-y-4 md:space-y-7"
         >
           {/* Craft Item Name */}
@@ -91,6 +97,7 @@ const AddCraft = () => {
               type="text"
               name="item_name"
               placeholder="Enter Craft Item Name"
+              defaultValue={item.item_name}
               required
             />
           </div>
@@ -103,6 +110,7 @@ const AddCraft = () => {
               type="text"
               name="subcategory_name"
               placeholder="Enter Subcategory Name"
+              defaultValue={item.subcategory_name}
               required
             />
           </div>
@@ -114,6 +122,7 @@ const AddCraft = () => {
               className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
               name="short_description"
               placeholder="Enter Short Description"
+              defaultValue={item.short_description}
               required
             ></textarea>
           </div>
@@ -126,6 +135,7 @@ const AddCraft = () => {
               type="number"
               name="price"
               placeholder="Enter Price"
+              defaultValue={item.price}
               required
             />
           </div>
@@ -140,6 +150,7 @@ const AddCraft = () => {
               placeholder="Enter Rating (out of 5)"
               min="1"
               max="5"
+              defaultValue={item.rating}
               required
             />
           </div>
@@ -151,6 +162,7 @@ const AddCraft = () => {
               className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
               name="Customisation"
               required
+              defaultValue={item.Customisation}
             >
               <option value="yes">Yes</option>
               <option value="no">No</option>
@@ -165,6 +177,7 @@ const AddCraft = () => {
               type="text"
               name="processing_time"
               placeholder="Enter Processing Time (e.g. 3-5 days)"
+              defaultValue={item.processing_time}
               required
             />
           </div>
@@ -176,6 +189,7 @@ const AddCraft = () => {
               className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
               name="stock_status"
               required
+              defaultValue={item.stock_status}
             >
               <option value="in_stock">In Stock</option>
               <option value="made_to_order">Made to Order</option>
@@ -203,6 +217,7 @@ const AddCraft = () => {
               type="text"
               name="user_name"
               placeholder="Enter Your Name"
+              defaultValue={user.displayName}
               required
             />
           </div>
@@ -215,13 +230,14 @@ const AddCraft = () => {
               type="url"
               name="imageURL"
               placeholder="Enter Craft Image URL"
+              defaultValue={item.imageURL}
               required
             />
           </div>
 
           {/* Submit Button */}
           <div className="border px-3 py-1 bg-[#E3B577] hover:text-black text-lg text-center">
-            <input type="submit" value="Add Craft" />
+            <input type="submit" value="Update Craft" />
           </div>
         </form>
       </div>
@@ -229,4 +245,4 @@ const AddCraft = () => {
   );
 };
 
-export default AddCraft;
+export default UpdatePage;

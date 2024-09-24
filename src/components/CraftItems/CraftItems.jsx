@@ -16,34 +16,46 @@ const CraftItems = () => {
   return (
     <div className="max-w-6xl mx-auto py-10">
       <h2 className="text-4xl text-center font-bold mb-8">Our Crafts</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {craftItems.map((item) => (
           <div
             key={item._id}
-            className="bg-white border shadow-lg rounded-lg overflow-hidden"
+            className="bg-white border shadow-lg rounded-lg overflow-hidden flex flex-col"
           >
-            <img
-              className="h-56 w-full object-cover"
-              src={item.imageURL}
-              alt={item.item_name}
-            />
-            <div className="p-5">
+            {/* Image */}
+            <div className="h-56 overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src={item.imageURL}
+                alt={item.item_name}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="p-5 flex flex-col flex-grow">
               <h3 className="text-lg font-bold mb-2">{item.item_name}</h3>
+
+              {/* Short description (limit length for uniformity) */}
               <p className="text-sm text-gray-600 mb-4">
-                {item.short_description}
+                {item.short_description.slice(0, 80)}...
               </p>
+
               <p className="text-lg font-semibold text-gray-800 mb-2">
                 ${item.price}
               </p>
               <p className="text-sm text-gray-500 mb-4">
                 Rating: {item.rating} / 5
               </p>
-              <Link
-                to={`/crafts/${item._id}`} // Assuming you have a route to view individual craft item details
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded inline-block"
-              >
-                View Details
-              </Link>
+
+              {/* Button */}
+              <div className="mt-auto">
+                <Link
+                  to={`/crafts/${item._id}`}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded inline-block"
+                >
+                  View Details
+                </Link>
+              </div>
             </div>
           </div>
         ))}
