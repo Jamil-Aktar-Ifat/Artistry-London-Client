@@ -91,3 +91,22 @@ createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </StrictMode>
 );
+
+
+/**
+ * 
+ * {
+ "item_name": "Ceramic Vase with Glaze",
+    "subcategory_name": "Ceramics",
+    "short_description": "A custom-designed ceramic vase with a unique glaze, perfect for home decoration.",
+    "price": 49.99,
+    "rating": 4.7,
+    "Customisation": "no",
+    "processing_time": "1-2 weeks",
+    "stock_status": "Limited Stock",
+    "user_email": "jane.smith@example.com",
+    "user_name": "Jane Smith",
+    "imageURL": "https://example.com/images/ceramic-vase.jpg"
+}
+
+ */

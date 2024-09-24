@@ -8,37 +8,60 @@ const MyCrafts = () => {
   const [craftItems, setCraftItems] = useState([]);
   const [filter, setFilter] = useState("all"); // "all", "yes", "no"
 
-  const userEmail = user.email; // Assuming user is logged in and AuthContext provides email
+  // Get the logged-in user's email
+  const userEmail = user?.email;
+  console.log(userEmail);
 
   useEffect(() => {
-    // Fetch user-specific craft items from the backend
-    fetch(`http://localhost:5005/crafts?email=${userEmail}`) // Adjust the URL to match your backend
-      .then((response) => response.json())
-      .then((data) => setCraftItems(data))
-      .catch((error) => console.error("Error fetching craft items:", error));
+    if (userEmail) {
+      // Fetch crafts specific to the logged-in user using their email
+      fetch(`http://localhost:5005/crafts?email=${userEmail}`)
+        .then((response) => response.json())
+        .then((data) => setCraftItems(data))
+        .catch((error) => console.error("Error fetching craft items:", error));
+    }
   }, [userEmail]);
 
   const handleDelete = (id) => {
-    // Delete craft item
-    fetch(`http://localhost:5005/crafts/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          Swal.fire("Deleted!", "Your craft item has been deleted.", "success");
-          setCraftItems(craftItems.filter((item) => item._id !== id));
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5005/crafts/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your craft has been deleted.",
+                icon: "success",
+              });
+              // Remove the deleted item from the list
+              setCraftItems((prevItems) =>
+                prevItems.filter((item) => item._id !== id)
+              );
+            }
+          })
+          .catch((error) => console.error("Error deleting craft item:", error));
+      }
+    });
   };
 
   // Filter craft items based on Customisation status
   const filteredItems = craftItems.filter((item) => {
-    if (filter === "all") return true; // Show all items if filter is set to "all"
+    if (filter === "all") return true;
     if (filter === "yes")
-      return item.Customisation === true || item.Customisation === "yes"; // Check for true or "yes"
+      return item.Customisation === true || item.Customisation === "yes";
     if (filter === "no")
-      return item.Customisation === false || item.Customisation === "no"; // Check for false or "no"
+      return item.Customisation === false || item.Customisation === "no";
     return true;
   });
 
@@ -89,18 +112,17 @@ const MyCrafts = () => {
               </p>
               <div className="flex justify-between">
                 <Link
-                  // to={`/edit/${item._id}`}
                   to={`/update/${item._id}`}
                   className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
                 >
                   Update
                 </Link>
-                <Link
+                <button
                   onClick={() => handleDelete(item._id)}
                   className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded"
                 >
                   Delete
-                </Link>
+                </button>
               </div>
             </div>
           </div>
