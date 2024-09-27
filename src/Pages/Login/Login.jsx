@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 const Login = () => {
   const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
@@ -49,7 +50,6 @@ const Login = () => {
           text: "Signned in successfully!",
           icon: "success",
         });
-        form.reset();
       })
       .catch((error) => {
         console.log(error);
@@ -69,7 +69,6 @@ const Login = () => {
           text: "Signned in successfully!",
           icon: "success",
         });
-        form.reset();
       })
       .catch((error) => {
         console.log(error);
@@ -81,66 +80,68 @@ const Login = () => {
       });
   };
   return (
-    <div className="flex flex-grow  items-center justify-center py-10">
-      <form
-        onSubmit={handleSubmit}
-        className="border grid grid-cols-1 gap-5 p-4"
-      >
-        <h2 className="text-center">Sign in Now</h2>
-        <input
-          className=" pl-3 py-3 border md:w-96"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Your Email"
-          required
-        />
-        <div className="relative">
+    <Fade duration={1000} delay={300}>
+      <div className="flex flex-grow  items-center justify-center py-10">
+        <form
+          onSubmit={handleSubmit}
+          className="border grid grid-cols-1 gap-5 p-4"
+        >
+          <h2 className="text-center">Sign in Now</h2>
           <input
-            className=" w-full pl-3 py-3 border"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            id="pass"
-            placeholder="Your Password"
+            className=" pl-3 py-3 border md:w-96"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Your Email"
             required
           />
-          <span
-            className="absolute right-5 top-4"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <IoMdEye></IoMdEye> : <IoMdEyeOff></IoMdEyeOff>}
-          </span>
-        </div>
-        <input
-          className=" pl-3 py-3 border bg-yellow-500 text-white hover:text-black"
-          type="submit"
-          value="Sign in"
-        />
+          <div className="relative">
+            <input
+              className=" w-full pl-3 py-3 border"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="pass"
+              placeholder="Your Password"
+              required
+            />
+            <span
+              className="absolute right-5 top-4"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <IoMdEye></IoMdEye> : <IoMdEyeOff></IoMdEyeOff>}
+            </span>
+          </div>
+          <input
+            className=" pl-3 py-3 border bg-yellow-500 text-white hover:text-black"
+            type="submit"
+            value="Sign in"
+          />
 
-        <p className="text-center">
-          Don't have an account?{" "}
-          <Link to="/register" className="underline">
-            Sign up
-          </Link>{" "}
-          now
-        </p>
-        <div className="flex items-center justify-center gap-5">
-          <button
-            className="flex items-center gap-2 border justify-center py-3 px-10  rounded-full"
-            onClick={handleGoogleSignIn}
-          >
-            <FcGoogle></FcGoogle>
-            <p>Sign in with Google</p>
-          </button>
-          <button
-            className=" border py-4  px-5 rounded-3xl"
-            onClick={handleGithubSignIn}
-          >
-            <FaGithub></FaGithub>
-          </button>
-        </div>
-      </form>
-    </div>
+          <p className="text-center">
+            Don't have an account?{" "}
+            <Link to="/register" className="underline">
+              Sign up
+            </Link>{" "}
+            now
+          </p>
+          <div className="flex items-center justify-center gap-5">
+            <button
+              className="flex items-center gap-2 border justify-center py-3 px-10  rounded-full"
+              onClick={handleGoogleSignIn}
+            >
+              <FcGoogle></FcGoogle>
+              <p>Sign in with Google</p>
+            </button>
+            <button
+              className=" border py-4  px-5 rounded-3xl"
+              onClick={handleGithubSignIn}
+            >
+              <FaGithub></FaGithub>
+            </button>
+          </div>
+        </form>
+      </div>
+    </Fade>
   );
 };
 

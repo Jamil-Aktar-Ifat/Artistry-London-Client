@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Fade } from "react-awesome-reveal";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -49,73 +50,75 @@ const Register = () => {
       });
   };
   return (
-    <div className="flex flex-grow  items-center justify-center py-10">
-      <form
-        onSubmit={handleSubmit}
-        className="border grid grid-cols-1 gap-5 p-4"
-      >
-        <h2 className="text-center">Sign Up Now</h2>
-        <input
-          className=" pl-3 py-3 border md:w-96"
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Your Name"
-          required
-        />
-        <input
-          className="pl-3 py-3 border"
-          type="url"
-          name="url"
-          id="url"
-          placeholder="PhotoUrl"
-        />
-        <input
-          className=" pl-3 py-3 border"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Your Email"
-          required
-        />
-        <div className="relative">
+    <Fade duration={1000} delay={300}>
+      <div className="flex flex-grow  items-center justify-center py-10">
+        <form
+          onSubmit={handleSubmit}
+          className="border grid grid-cols-1 gap-5 p-4"
+        >
+          <h2 className="text-center">Sign Up Now</h2>
           <input
-            className=" w-full pl-3 py-3 border"
-            type="password"
-            name="password"
-            id="pass"
-            placeholder="Your Password"
+            className=" pl-3 py-3 border md:w-96"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your Name"
             required
           />
-        </div>
-        <input
-          className=" pl-3 py-3 border bg-yellow-500 text-white hover:text-black"
-          type="submit"
-          value="Sign up"
-        />
+          <input
+            className="pl-3 py-3 border"
+            type="url"
+            name="url"
+            id="url"
+            placeholder="PhotoUrl"
+          />
+          <input
+            className=" pl-3 py-3 border"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Your Email"
+            required
+          />
+          <div className="relative">
+            <input
+              className=" w-full pl-3 py-3 border"
+              type="password"
+              name="password"
+              id="pass"
+              placeholder="Your Password"
+              required
+            />
+          </div>
+          <input
+            className=" pl-3 py-3 border bg-yellow-500 text-white hover:text-black"
+            type="submit"
+            value="Sign up"
+          />
 
-        <p className="text-center">
-          Already have an account?{" "}
-          <Link to="/login" className="underline">
-            Login
-          </Link>{" "}
-          now
-        </p>
-        <ToastContainer
-          position="top-center"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-          transition={Bounce}
-        ></ToastContainer>
-      </form>
-    </div>
+          <p className="text-center">
+            Already have an account?{" "}
+            <Link to="/login" className="underline">
+              Login
+            </Link>{" "}
+            now
+          </p>
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          ></ToastContainer>
+        </form>
+      </div>
+    </Fade>
   );
 };
 

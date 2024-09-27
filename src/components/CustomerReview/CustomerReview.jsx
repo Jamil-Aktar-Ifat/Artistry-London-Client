@@ -1,4 +1,4 @@
-import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { FaStar } from "react-icons/fa";
 
 const reviews = [
@@ -26,52 +26,52 @@ const reviews = [
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/76.jpg",
   },
-  // Add more reviews as needed
 ];
 
 const CustomerReview = () => {
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-      <h2 className="text-4xl text-center font-bold mb-8">Customer Reviews</h2>
+    <Fade duration={1000} delay={300}>
+      <div className="max-w-6xl mx-auto py-10 px-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+        <h2 className="text-4xl text-center font-bold mb-8">
+          Customer Reviews
+        </h2>
 
-      {/* Review Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {reviews.map((review) => (
-          <div
-            key={review.id}
-            className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg"
-          >
-            {/* Avatar */}
-            <div className="flex items-center mb-4">
-              <img
-                src={review.avatar}
-                alt={review.name}
-                className="w-12 h-12 rounded-full mr-4"
-              />
-              <div>
-                <h4 className="text-lg font-bold">{review.name}</h4>
-                <div className="flex">
-                  {Array(review.rating)
-                    .fill()
-                    .map((_, index) => (
-                      <FaStar
-                        key={index}
-                        className="text-yellow-500"
-                        aria-hidden="true"
-                      />
-                    ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {reviews.map((review) => (
+            <div
+              key={review.id}
+              className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+            >
+              <div className="flex items-center mb-4">
+                <img
+                  src={review.avatar}
+                  alt={review.name}
+                  className="w-12 h-12 rounded-full mr-4"
+                />
+                <div>
+                  <h4 className="text-lg font-bold">{review.name}</h4>
+                  <div className="flex">
+                    {Array(review.rating)
+                      .fill()
+                      .map((_, index) => (
+                        <FaStar
+                          key={index}
+                          className="text-yellow-500"
+                          aria-hidden="true"
+                        />
+                      ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Review Text */}
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              "{review.review}"
-            </p>
-          </div>
-        ))}
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                "{review.review}"
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Fade>
   );
 };
 

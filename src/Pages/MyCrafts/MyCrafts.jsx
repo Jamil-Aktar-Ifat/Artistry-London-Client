@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 
 const MyCrafts = () => {
   const { user } = useContext(AuthContext);
@@ -66,65 +67,69 @@ const MyCrafts = () => {
   });
 
   return (
-    <div className="max-w-6xl mx-auto py-10  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-      <h2 className="text-4xl text-center font-bold mb-8">My Crafts</h2>
+    <Fade>
+      <div className="max-w-6xl mx-auto py-10  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+        <h2 className="text-4xl text-center font-bold mb-8">My Crafts</h2>
 
-      <div className="mb-5 ">
-        <label htmlFor="filter" className="mr-2">
-          Filter by Customisation:
-        </label>
-        <select
-          id="filter"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="p-2 border rounded  dark:bg-gray-900 text-gray-800 dark:text-gray-100"
-        >
-          <option value="all">All</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6">
-        {filteredItems.map((item) => (
-          <div
-            key={item._id}
-            className=" border shadow-lg rounded-lg overflow-hidden"
+        <div className="mb-5 ">
+          <label htmlFor="filter" className="mr-2">
+            Filter by Customisation:
+          </label>
+          <select
+            id="filter"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="p-2 border rounded  dark:bg-gray-900 text-gray-800 dark:text-gray-100"
           >
-            <img
-              className="h-56 w-full object-cover"
-              src={item.imageURL}
-              alt={item.item_name}
-            />
-            <div className="p-5">
-              <h3 className="text-lg font-bold mb-2">{item.item_name}</h3>
-              <p className="text-lg font-semibold text-gray-800 mb-2">
-                ${item.price}
-              </p>
-              <p className="text-sm  mb-2">Rating: {item.rating} / 5</p>
-              <p className="text-sm  mb-4">
-                Customisation: {item.Customisation ? "Yes" : "No"}
-              </p>
-              <p className="text-sm  mb-4">Stock Status: {item.stockStatus}</p>
-              <div className="flex justify-between">
-                <Link
-                  to={`/update/${item._id}`}
-                  className="bg-blue-500 hover:bg-blue-600font-semibold py-2 px-4 rounded"
-                >
-                  Update
-                </Link>
-                <button
-                  onClick={() => handleDelete(item._id)}
-                  className="bg-red-500 hover:bg-red-600 font-semibold py-2 px-4 rounded"
-                >
-                  Delete
-                </button>
+            <option value="all">All</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6">
+          {filteredItems.map((item) => (
+            <div
+              key={item._id}
+              className=" border shadow-lg rounded-lg overflow-hidden"
+            >
+              <img
+                className="h-56 w-full object-cover"
+                src={item.imageURL}
+                alt={item.item_name}
+              />
+              <div className="p-5">
+                <h3 className="text-lg font-bold mb-2">{item.item_name}</h3>
+                <p className="text-lg font-semibold text-gray-800 mb-2">
+                  ${item.price}
+                </p>
+                <p className="text-sm  mb-2">Rating: {item.rating} / 5</p>
+                <p className="text-sm  mb-4">
+                  Customisation: {item.Customisation ? "Yes" : "No"}
+                </p>
+                <p className="text-sm  mb-4">
+                  Stock Status: {item.stockStatus}
+                </p>
+                <div className="flex justify-between">
+                  <Link
+                    to={`/update/${item._id}`}
+                    className="bg-blue-500 hover:bg-blue-600font-semibold py-2 px-4 rounded"
+                  >
+                    Update
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="bg-red-500 hover:bg-red-600 font-semibold py-2 px-4 rounded"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </Fade>
   );
 };
 
