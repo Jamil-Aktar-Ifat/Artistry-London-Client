@@ -17,10 +17,11 @@ const cardVariants = {
 
 const CraftItems = () => {
   const [craftItems, setCraftItems] = useState([]);
+  const [dataLength, setDataLength] = useState(6);
 
   useEffect(() => {
     // Fetch craft items from the backend
-    fetch("http://localhost:5005/crafts")
+    fetch("https://artistry-london-server.vercel.app/crafts")
       .then((response) => response.json())
       .then((data) => setCraftItems(data))
       .catch((error) => console.error("Error fetching craft items:", error));
@@ -34,7 +35,7 @@ const CraftItems = () => {
 
       <Fade duration={1000} delay={300}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {craftItems.map((item) => (
+          {craftItems.slice(0, dataLength).map((item) => (
             <motion.div
               key={item._id}
               className="w-full border shadow-lg rounded-lg overflow-hidden flex flex-col bg-white dark:bg-gray-800"
@@ -58,6 +59,16 @@ const CraftItems = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+        <div className="text-center my-5">
+          <div className={dataLength === craftItems.length && "hidden"}>
+            <button
+              onClick={() => setDataLength(craftItems.length)}
+              className="bg-blue-500 hover:bg-blue-600 text-white border-none px-5 py-3 rounded-md custom-hover"
+            >
+              View More
+            </button>
+          </div>
         </div>
       </Fade>
     </div>

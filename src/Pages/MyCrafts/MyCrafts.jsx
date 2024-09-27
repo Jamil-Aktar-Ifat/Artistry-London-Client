@@ -16,7 +16,9 @@ const MyCrafts = () => {
   useEffect(() => {
     if (userEmail) {
       // Fetch crafts specific to the logged-in user using their email
-      fetch(`http://localhost:5005/crafts?email=${userEmail}`)
+      fetch(
+        `https://artistry-london-server.vercel.app/crafts?email=${userEmail}`
+      )
         .then((response) => response.json())
         .then((data) => setCraftItems(data))
         .catch((error) => console.error("Error fetching craft items:", error));
@@ -34,7 +36,7 @@ const MyCrafts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5005/crafts/${id}`, {
+        fetch(`https://artistry-london-server.vercel.app/crafts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -69,7 +71,9 @@ const MyCrafts = () => {
   return (
     <Fade>
       <div className="max-w-6xl mx-auto py-10  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h2 className="text-4xl text-center font-medium mb-8 poppins">My Crafts</h2>
+        <h2 className="text-4xl text-center font-medium mb-8 poppins">
+          My Crafts
+        </h2>
 
         <div className="mb-5 poppins">
           <label htmlFor="filter" className="mr-2">
@@ -99,7 +103,9 @@ const MyCrafts = () => {
                 alt={item.item_name}
               />
               <div className="p-5">
-                <h3 className="text-lg font-bold mb-2 poppins">{item.item_name}</h3>
+                <h3 className="text-lg font-bold mb-2 poppins">
+                  {item.item_name}
+                </h3>
                 <p className="text-lg font-semibold text-gray-800 mb-2">
                   ${item.price}
                 </p>
@@ -128,6 +134,7 @@ const MyCrafts = () => {
             </div>
           ))}
         </div>
+        
       </div>
     </Fade>
   );

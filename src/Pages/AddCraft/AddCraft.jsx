@@ -37,7 +37,7 @@ const AddCraft = () => {
     console.log(newCraft);
 
     // Send data to the server
-    fetch("http://localhost:5005/crafts", {
+    fetch("https://artistry-london-server.vercel.app/crafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

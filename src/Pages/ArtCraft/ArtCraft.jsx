@@ -7,7 +7,7 @@ const ArtCraft = () => {
 
   // Fetch art and craft items from the backend
   useEffect(() => {
-    fetch("http://localhost:5005/crafts")
+    fetch("https://artistry-london-server.vercel.app/crafts")
       .then((response) => response.json())
       .then((data) => setArtCraftItems(data))
       .catch((error) =>

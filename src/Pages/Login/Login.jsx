@@ -88,7 +88,7 @@ const Login = () => {
         >
           <h2 className="text-center poppins">Sign in Now</h2>
           <input
-            className=" pl-3 py-3 border md:w-96"
+            className=" pl-3 py-3 border md:w-96 dark:text-black"
             type="email"
             name="email"
             id="email"
@@ -97,7 +97,7 @@ const Login = () => {
           />
           <div className="relative">
             <input
-              className=" w-full pl-3 py-3 border"
+              className=" w-full pl-3 py-3 border dark:text-black"
               type={showPassword ? "text" : "password"}
               name="password"
               id="pass"

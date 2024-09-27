@@ -59,7 +59,7 @@ const Register = () => {
         >
           <h2 className="text-center poppins">Sign Up Now</h2>
           <input
-            className=" pl-3 py-3 border md:w-96"
+            className=" pl-3 py-3 border md:w-96 dark:text-black"
             type="text"
             name="name"
             id="name"
@@ -67,14 +67,14 @@ const Register = () => {
             required
           />
           <input
-            className="pl-3 py-3 border"
+            className="pl-3 py-3 border dark:text-black"
             type="url"
             name="url"
             id="url"
             placeholder="PhotoUrl"
           />
           <input
-            className=" pl-3 py-3 border"
+            className=" pl-3 py-3 border dark:text-black"
             type="email"
             name="email"
             id="email"
@@ -83,7 +83,7 @@ const Register = () => {
           />
           <div className="relative">
             <input
-              className=" w-full pl-3 py-3 border"
+              className=" w-full pl-3 py-3 border dark:text-black"
               type="password"
               name="password"
               id="pass"
