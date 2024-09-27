@@ -32,7 +32,7 @@ const CustomerReview = () => {
   return (
     <Fade duration={1000} delay={300}>
       <div className="max-w-6xl mx-auto py-10 px-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h2 className="text-4xl text-center font-bold mb-8">
+        <h2 className="text-4xl text-center font-semibold mb-8 poppins">
           Customer Reviews
         </h2>
 
@@ -49,7 +49,7 @@ const CustomerReview = () => {
                   className="w-12 h-12 rounded-full mr-4"
                 />
                 <div>
-                  <h4 className="text-lg font-bold">{review.name}</h4>
+                  <h4 className="text-lg font-bold poppins">{review.name}</h4>
                   <div className="flex">
                     {Array(review.rating)
                       .fill()
@@ -64,7 +64,7 @@ const CustomerReview = () => {
                 </div>
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 roboto">
                 "{review.review}"
               </p>
             </div>

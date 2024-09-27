@@ -69,9 +69,9 @@ const MyCrafts = () => {
   return (
     <Fade>
       <div className="max-w-6xl mx-auto py-10  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h2 className="text-4xl text-center font-bold mb-8">My Crafts</h2>
+        <h2 className="text-4xl text-center font-semibold mb-8 poppins">My Crafts</h2>
 
-        <div className="mb-5 ">
+        <div className="mb-5 poppins">
           <label htmlFor="filter" className="mr-2">
             Filter by Customisation:
           </label>
@@ -91,7 +91,7 @@ const MyCrafts = () => {
           {filteredItems.map((item) => (
             <div
               key={item._id}
-              className=" border shadow-lg rounded-lg overflow-hidden"
+              className=" border shadow-lg rounded-lg overflow-hidden roboto"
             >
               <img
                 className="h-56 w-full object-cover"
@@ -99,7 +99,7 @@ const MyCrafts = () => {
                 alt={item.item_name}
               />
               <div className="p-5">
-                <h3 className="text-lg font-bold mb-2">{item.item_name}</h3>
+                <h3 className="text-lg font-bold mb-2 poppins">{item.item_name}</h3>
                 <p className="text-lg font-semibold text-gray-800 mb-2">
                   ${item.price}
                 </p>
@@ -113,13 +113,13 @@ const MyCrafts = () => {
                 <div className="flex justify-between">
                   <Link
                     to={`/update/${item._id}`}
-                    className="bg-blue-500 hover:bg-blue-600font-semibold py-2 px-4 rounded"
+                    className="bg-blue-500 text-white hover:bg-blue-600  py-2 px-4 rounded"
                   >
                     Update
                   </Link>
                   <button
                     onClick={() => handleDelete(item._id)}
-                    className="bg-red-500 hover:bg-red-600 font-semibold py-2 px-4 rounded"
+                    className="bg-red-500 hover:bg-red-600 text-white  py-2 px-4 rounded"
                   >
                     Delete
                   </button>

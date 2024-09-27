@@ -24,13 +24,13 @@ const MapIlford = () => {
   return (
     <Fade duration={1000} delay={300}>
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl text-center font-bold ">Find Us Here</h2>
+        <h2 className="text-4xl text-center font-semibold poppins">Find Us Here</h2>
         <div className="w-full h-96 my-4">
           <MapContainer
             center={ilfordCoords}
             zoom={13}
             scrollWheelZoom={false}
-            className="h-full rounded-lg" // Tailwind CSS for responsiveness and styling
+            className="h-full rounded-lg" 
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

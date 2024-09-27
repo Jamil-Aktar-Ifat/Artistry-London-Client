@@ -84,9 +84,9 @@ const Login = () => {
       <div className="flex flex-grow  items-center justify-center py-10">
         <form
           onSubmit={handleSubmit}
-          className="border grid grid-cols-1 gap-5 p-4"
+          className="border grid grid-cols-1 gap-5 p-4 roboto"
         >
-          <h2 className="text-center">Sign in Now</h2>
+          <h2 className="text-center poppins">Sign in Now</h2>
           <input
             className=" pl-3 py-3 border md:w-96"
             type="email"
@@ -112,7 +112,7 @@ const Login = () => {
             </span>
           </div>
           <input
-            className=" pl-3 py-3 border bg-yellow-500 text-white hover:text-black"
+            className=" pl-3 py-3 border bg-blue-500 text-white hover:bg-blue-700 poppins"
             type="submit"
             value="Sign in"
           />

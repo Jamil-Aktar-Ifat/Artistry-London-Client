@@ -87,13 +87,13 @@ const MarqueeC = () => {
 
              
               <div className="absolute bottom-0 w-full flex flex-col items-center text-white p-2 bg-black bg-opacity-50 rounded-b-xl md:rounded-lg">
-                <p className="text-sm sm:text-base md:text-lg font-semibold shadow-md">
+                <p className="text-sm sm:text-base md:text-lg font-semibold shadow-md poppins">
                   {slide.name}
                 </p>
-                <p className="text-xs sm:text-sm md:text-base shadow-md">
+                <p className="text-xs sm:text-sm md:text-base shadow-md poppins">
                   {slide.title}
                 </p>
-                <div className="flex items-center gap-2 mt-2">
+                <div className="flex items-center gap-2 mt-2 roboto">
                   {slide.tags.map((tag, idx) => (
                     <button
                       key={idx}

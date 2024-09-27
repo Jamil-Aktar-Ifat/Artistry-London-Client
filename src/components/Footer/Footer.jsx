@@ -10,8 +10,8 @@ const Footer = () => {
       <div className=" py-10 bg-slate-100 m-0  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
         <div className="max-w-6xl mx-auto space-y-20">
           <div className="flex  flex-col md:flex-row items-center justify-around space-y-5 md:space-y-0">
-            <h2 className="text-2xl font-semibold ">Artistry London</h2>
-            <div className="flex flex-col md:flex-row items-center gap-3 font-semibold">
+            <h2 className="text-4xl font-semibold rancho ">Artistry London</h2>
+            <div className="flex flex-col md:flex-row items-center gap-3 font-semibold poppins">
               <h2>For designers</h2>
               <h2>Hire Talent</h2>
               <h2>Inspiration</h2>
@@ -27,7 +27,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex justify-between flex-col md:flex-row pl-4 md:pl-0">
+          <div className="flex justify-between flex-col md:flex-row pl-4 md:pl-0 roboto">
             <div className="flex items-center gap-3">
               <div>{"\u00A9"} 2024 Artistry London</div>
               <p>Terms </p>

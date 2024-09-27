@@ -17,8 +17,8 @@ const ArtCraft = () => {
 
   return (
     <Fade duration={1000} delay={300}>
-      <div className="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-8">
+      <div className="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8  dark:bg-gray-900 text-gray-800 dark:text-gray-100 roboto">
+        <h2 className="text-3xl font-semibold text-center mb-8 poppins">
           All Art & Craft Items
         </h2>
 
@@ -53,7 +53,7 @@ const ArtCraft = () => {
                   <td className="p-4">
                     <Link
                       to={`/crafts/${item._id}`}
-                      className="bg-blue-500 hover:bg-blue-600  font-semibold py-1 px-3 rounded"
+                      className="bg-blue-500 hover:bg-blue-600 text-white   py-2 px-3 rounded"
                     >
                       View Details
                     </Link>

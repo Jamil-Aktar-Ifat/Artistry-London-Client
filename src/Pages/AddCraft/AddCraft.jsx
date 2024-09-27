@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { FaArrowLeftLong } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -63,9 +61,9 @@ const AddCraft = () => {
 
   return (
     <Fade duration={1000} delay={300}>
-      <div className="max-w-6xl mx-auto  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+      <div className="max-w-6xl mx-auto  dark:bg-gray-900 text-gray-800 dark:text-gray-100 roboto">
         <div className=" bg-[#F4F3F0] dark:bg-gray-900 mt-4 mb-20 md:py-20 space-y-5 border">
-          <h2 className="text-center text-4xl">Add New Craft</h2>
+          <h2 className="text-center text-4xl poppins">Add New Craft</h2>
           <p className="text-center px-10 md:px-44">
             Showcase your creativity and share your handmade crafts with a
             passionate community. Whether it's jewelry, home decor, or unique
@@ -76,9 +74,8 @@ const AddCraft = () => {
             onSubmit={handleAddCraft}
             className="mx-10 md:mx-28 space-y-4 md:space-y-7"
           >
-            {/* Craft Item Name */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Item Name</h2>
+              <h2 className="font-semibold poppins">Item Name</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="text"
@@ -88,9 +85,8 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Subcategory Name */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Subcategory Name</h2>
+              <h2 className="font-semibold poppins">Subcategory Name</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="text"
@@ -100,9 +96,8 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Short Description */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Short Description</h2>
+              <h2 className="font-semibold poppins">Short Description</h2>
               <textarea
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 name="short_description"
@@ -111,9 +106,8 @@ const AddCraft = () => {
               ></textarea>
             </div>
 
-            {/* Price */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Price</h2>
+              <h2 className="font-semibold poppins">Price</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="number"
@@ -123,9 +117,8 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Rating */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Rating</h2>
+              <h2 className="font-semibold poppins">Rating</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="number"
@@ -137,9 +130,8 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Customisation */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Customisation</h2>
+              <h2 className="font-semibold poppins">Customisation</h2>
               <select
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 name="Customisation"
@@ -152,7 +144,7 @@ const AddCraft = () => {
 
             {/* Processing Time */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Processing Time</h2>
+              <h2 className="font-semibold poppins">Processing Time</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="text"
@@ -162,22 +154,20 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Stock Status */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Stock Status</h2>
+              <h2 className="font-semibold poppins">Stock Status</h2>
               <select
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 name="stock_status"
                 required
               >
-                <option value="in_stock">In Stock</option>
+                <option value="in_stock ">In Stock</option>
                 <option value="made_to_order">Made to Order</option>
               </select>
             </div>
 
-            {/* User Email */}
             <div className="space-y-1">
-              <h2 className="font-semibold">User Email</h2>
+              <h2 className="font-semibold poppins">User Email</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="email"
@@ -188,9 +178,8 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* User Name */}
             <div className="space-y-1">
-              <h2 className="font-semibold">User Name</h2>
+              <h2 className="font-semibold poppins">User Name</h2>
               <input
                 className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
                 type="text"
@@ -200,9 +189,8 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Image URL */}
             <div className="space-y-1">
-              <h2 className="font-semibold">Image URL</h2>
+              <h2 className="font-semibold poppins">Image URL</h2>
               <input
                 className="w-full px-3 py-2 text-sm border-[#E3B577] input-warning"
                 type="url"
@@ -212,7 +200,6 @@ const AddCraft = () => {
               />
             </div>
 
-            {/* Submit Button */}
             <div className="border px-3 py-1 bg-[#E3B577] hover:text-black text-lg text-center">
               <input type="submit" value="Add Craft" />
             </div>

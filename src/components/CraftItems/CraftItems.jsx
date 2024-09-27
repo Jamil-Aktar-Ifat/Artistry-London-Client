@@ -14,9 +14,9 @@ const CraftItems = () => {
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-      <h2 className="text-4xl text-center font-bold mb-8">Our Crafts</h2>
+      <h2 className="text-4xl text-center font-semibold mb-8 poppins">Our Crafts</h2>
 
-      {/* Responsive Grid Layout with Fade */}
+      
       <Fade duration={1000} delay={300}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {craftItems.map((item) => (
@@ -24,7 +24,6 @@ const CraftItems = () => {
               key={item._id}
               className="w-full border shadow-lg rounded-lg overflow-hidden flex flex-col"
             >
-              {/* Image */}
               <div className="h-56 overflow-hidden">
                 <img
                   className="md:w-full h-full object-cover"
@@ -33,12 +32,12 @@ const CraftItems = () => {
                 />
               </div>
 
-              {/* Content */}
-              <div className="p-5 flex flex-col flex-grow">
+              
+              <div className="p-5 flex flex-col flex-grow poppins">
                 <h3 className="text-lg font-bold mb-2">{item.item_name}</h3>
 
-                {/* Short description */}
-                <p className="text-sm mb-4">
+                
+                <p className="text-sm mb-4 roboto">
                   {item.short_description.slice(0, 80)}...
                 </p>
               </div>

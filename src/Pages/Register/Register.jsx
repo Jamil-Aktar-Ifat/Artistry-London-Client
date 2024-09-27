@@ -51,12 +51,12 @@ const Register = () => {
   };
   return (
     <Fade duration={1000} delay={300}>
-      <div className="flex flex-grow  items-center justify-center py-10">
+      <div className="flex flex-grow  items-center justify-center py-10 roboto">
         <form
           onSubmit={handleSubmit}
           className="border grid grid-cols-1 gap-5 p-4"
         >
-          <h2 className="text-center">Sign Up Now</h2>
+          <h2 className="text-center poppins">Sign Up Now</h2>
           <input
             className=" pl-3 py-3 border md:w-96"
             type="text"
@@ -91,7 +91,7 @@ const Register = () => {
             />
           </div>
           <input
-            className=" pl-3 py-3 border bg-yellow-500 text-white hover:text-black"
+            className=" pl-3 py-3 border bg-blue-500 text-white hover:bg-blue-700"
             type="submit"
             value="Sign up"
           />

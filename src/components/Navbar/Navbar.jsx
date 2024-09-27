@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   const navLinks = (
-    <div className="flex items-center space-x-3 ">
+    <div className="flex items-center space-x-3 poppins">
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -79,8 +79,8 @@ const Navbar = () => {
     <nav className="navbar py-5 max-w-6xl mx-auto">
       {/* Navbar Start */}
       <div className="navbar-start">
-        {/* Dropdown for Mobile */}
-        <div className="dropdown">
+        
+        <div className="dropdown poppins">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link
-          className="text-xl font-bold text-gray-800 dark:text-gray-100"
+          className="rancho text-4xl font-bold text-gray-800 dark:text-gray-100"
           to="/"
         >
           Artistry London
@@ -128,7 +128,7 @@ const Navbar = () => {
       </div>
 
       {/* Navbar End */}
-      <div className="navbar-end flex items-center space-x-4">
+      <div className="navbar-end flex items-center space-x-4 poppins">
         {user ? (
           <div className="relative group">
             {/* User Photo with Tooltip */}
@@ -152,7 +152,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1">
             <NavLink
               to="/login"
               className={({ isActive }) =>
