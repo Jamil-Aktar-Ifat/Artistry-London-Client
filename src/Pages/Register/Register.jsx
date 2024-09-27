@@ -13,8 +13,9 @@ const Register = () => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
+    const photoURL = form.url.value;
     const password = form.password.value;
-    console.log(email, password);
+    console.log(email , photoURL, password);
 
     setRegistrationError("");
 
