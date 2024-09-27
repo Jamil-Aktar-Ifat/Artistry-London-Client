@@ -14,7 +14,7 @@ const CraftItems = () => {
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-      <h2 className="text-4xl text-center font-semibold mb-8 poppins">Our Crafts</h2>
+      <h2 className="text-4xl text-center font-semibold my-8 poppins">Our Crafts</h2>
 
       
       <Fade duration={1000} delay={300}>

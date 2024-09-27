@@ -32,11 +32,11 @@ const CustomerReview = () => {
   return (
     <Fade duration={1000} delay={300}>
       <div className="max-w-6xl mx-auto py-10 px-4 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h2 className="text-4xl text-center font-semibold mb-8 poppins">
+        <h2 className="text-4xl text-center font-semibold my-8 poppins">
           Customer Reviews
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-4">
           {reviews.map((review) => (
             <div
               key={review.id}

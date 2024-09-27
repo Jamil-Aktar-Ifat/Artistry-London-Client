@@ -77,7 +77,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Item Name</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="text"
                 name="item_name"
                 placeholder="Enter Craft Item Name"
@@ -88,7 +88,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Subcategory Name</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="text"
                 name="subcategory_name"
                 placeholder="Enter Subcategory Name"
@@ -99,7 +99,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Short Description</h2>
               <textarea
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 name="short_description"
                 placeholder="Enter Short Description"
                 required
@@ -109,7 +109,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Price</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="number"
                 name="price"
                 placeholder="Enter Price"
@@ -120,7 +120,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Rating</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="number"
                 name="rating"
                 placeholder="Enter Rating (out of 5)"
@@ -133,7 +133,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Customisation</h2>
               <select
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 name="Customisation"
                 required
               >
@@ -146,7 +146,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Processing Time</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="text"
                 name="processing_time"
                 placeholder="Enter Processing Time (e.g. 3-5 days)"
@@ -157,7 +157,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Stock Status</h2>
               <select
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 name="stock_status"
                 required
               >
@@ -169,7 +169,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">User Email</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="email"
                 name="user_email"
                 defaultValue={user.email}
@@ -181,7 +181,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">User Name</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="text"
                 name="user_name"
                 placeholder="Enter Your Name"
@@ -192,7 +192,7 @@ const AddCraft = () => {
             <div className="space-y-1">
               <h2 className="font-semibold poppins">Image URL</h2>
               <input
-                className="w-full px-3 py-2 text-sm border-[#E3B577] input-warning"
+                className="w-full px-3 py-2 text-sm "
                 type="url"
                 name="imageURL"
                 placeholder="Enter Craft Image URL"
@@ -200,7 +200,7 @@ const AddCraft = () => {
               />
             </div>
 
-            <div className="border px-3 py-1 bg-[#E3B577] hover:text-black text-lg text-center">
+            <div className="border px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-lg text-center poppins">
               <input type="submit" value="Add Craft" />
             </div>
           </form>

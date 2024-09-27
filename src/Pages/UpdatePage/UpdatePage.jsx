@@ -1,9 +1,8 @@
 import { useContext } from "react";
-import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
+import { useLoaderData } from "react-router-dom";
 
 const UpdatePage = () => {
   const { user } = useContext(AuthContext);
@@ -69,18 +68,9 @@ const UpdatePage = () => {
 
   return (
     <Fade duration={1000} delay={300}>
-      <div className="max-w-6xl mx-auto  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <Link to="/">
-          <div className="mt-10 flex items-center gap-2">
-            <div className="text-lg">
-              <FaArrowLeftLong className="font-extrabold"></FaArrowLeftLong>
-            </div>
-            <h2 className="= text-2xl">Back to home</h2>
-          </div>
-        </Link>
-
-        <div className="bg-[#F4F3F0] dark:bg-gray-900 mt-4 mb-20 md:py-20 space-y-5 dark:border">
-          <h2 className="text-center text-4xl">Update Craft</h2>
+      <div className="max-w-6xl mx-auto  dark:bg-gray-900 text-gray-800 dark:text-gray-100 roboto">
+        <div className="bg-[#F4F3F0] dark:bg-gray-900  mt-4 mb-20 md:py-20 space-y-5 dark:border">
+          <h2 className="text-center text-4xl poppins">Update Craft</h2>
           <p className="text-center px-10 md:px-44">
             Showcase your creativity and share your handmade crafts with a
             passionate community. Whether it's jewelry, home decor, or unique
@@ -89,12 +79,12 @@ const UpdatePage = () => {
 
           <form
             onSubmit={handleUpdate}
-            className="mx-10 md:mx-28 space-y-4 md:space-y-7"
+            className="mx-10 md:mx-28 space-y-4 md:space-y-7 "
           >
             <div className="space-y-1">
               <h2 className="font-semibold">Item Name</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black "
                 type="text"
                 name="item_name"
                 placeholder="Enter Craft Item Name"
@@ -106,7 +96,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Subcategory Name</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="text"
                 name="subcategory_name"
                 placeholder="Enter Subcategory Name"
@@ -118,7 +108,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Short Description</h2>
               <textarea
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 name="short_description"
                 placeholder="Enter Short Description"
                 defaultValue={item.short_description}
@@ -129,7 +119,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Price</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="number"
                 name="price"
                 placeholder="Enter Price"
@@ -141,7 +131,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Rating</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="number"
                 name="rating"
                 placeholder="Enter Rating (out of 5)"
@@ -155,7 +145,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Customisation</h2>
               <select
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 name="Customisation"
                 required
                 defaultValue={item.Customisation}
@@ -168,7 +158,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Processing Time</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="text"
                 name="processing_time"
                 placeholder="Enter Processing Time (e.g. 3-5 days)"
@@ -180,7 +170,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Stock Status</h2>
               <select
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 name="stock_status"
                 required
                 defaultValue={item.stock_status}
@@ -193,7 +183,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">User Email</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="email"
                 name="user_email"
                 defaultValue={user.email}
@@ -205,7 +195,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">User Name</h2>
               <input
-                className="px-3 w-full py-2 text-sm border-[#E3B577] input-warning"
+                className="px-3 w-full py-2 text-sm dark:text-black  "
                 type="text"
                 name="user_name"
                 placeholder="Enter Your Name"
@@ -217,7 +207,7 @@ const UpdatePage = () => {
             <div className="space-y-1">
               <h2 className="font-semibold">Image URL</h2>
               <input
-                className="w-full px-3 py-2 text-sm border-[#E3B577] input-warning"
+                className="w-full px-3 py-2 text-sm "
                 type="url"
                 name="imageURL"
                 placeholder="Enter Craft Image URL"
@@ -226,7 +216,7 @@ const UpdatePage = () => {
               />
             </div>
 
-            <div className="border px-3 py-1 bg-[#E3B577] hover:text-black text-lg text-center">
+            <div className="border px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-lg text-center poppins">
               <input type="submit" value="Update Craft" />
             </div>
           </form>

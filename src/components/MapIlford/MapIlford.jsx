@@ -24,8 +24,8 @@ const MapIlford = () => {
   return (
     <Fade duration={1000} delay={300}>
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl text-center font-semibold poppins">Find Us Here</h2>
-        <div className="w-full h-96 my-4">
+        <h2 className="text-4xl text-center font-semibold poppins my-8">Find Us Here</h2>
+        <div className="w-full h-96 my-8">
           <MapContainer
             center={ilfordCoords}
             zoom={13}

@@ -69,7 +69,7 @@ const MyCrafts = () => {
   return (
     <Fade>
       <div className="max-w-6xl mx-auto py-10  dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h2 className="text-4xl text-center font-semibold mb-8 poppins">My Crafts</h2>
+        <h2 className="text-4xl text-center font-medium mb-8 poppins">My Crafts</h2>
 
         <div className="mb-5 poppins">
           <label htmlFor="filter" className="mr-2">

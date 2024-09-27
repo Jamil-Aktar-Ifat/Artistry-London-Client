@@ -18,7 +18,7 @@ const ArtCraft = () => {
   return (
     <Fade duration={1000} delay={300}>
       <div className="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8  dark:bg-gray-900 text-gray-800 dark:text-gray-100 roboto">
-        <h2 className="text-3xl font-semibold text-center mb-8 poppins">
+        <h2 className="text-3xl font-medium text-center mb-8 poppins">
           All Art & Craft Items
         </h2>
 
