@@ -42,6 +42,7 @@ const Register = () => {
           text: "Account Created successfully!",
           icon: "success",
         });
+        form.reset();
       })
       .then((error) => {
         console.log(error);

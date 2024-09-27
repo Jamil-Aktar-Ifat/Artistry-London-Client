@@ -27,6 +27,7 @@ const Login = () => {
             icon: "success",
           });
         }
+        form.reset();
       })
       .catch((error) => {
         console.log(error);
@@ -48,6 +49,7 @@ const Login = () => {
           text: "Signned in successfully!",
           icon: "success",
         });
+        form.reset();
       })
       .catch((error) => {
         console.log(error);
@@ -67,6 +69,7 @@ const Login = () => {
           text: "Signned in successfully!",
           icon: "success",
         });
+        form.reset();
       })
       .catch((error) => {
         console.log(error);
